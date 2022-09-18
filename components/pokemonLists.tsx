@@ -35,7 +35,6 @@ const Post: React.FC<Props> = ({ pokemondata }) => {
             layout="responsive"
             objectFit="contain"
           />
-
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {"#" + data.number}
@@ -45,10 +44,6 @@ const Post: React.FC<Props> = ({ pokemondata }) => {
             </Typography>
             <ChipElement label={data.types} />
           </CardContent>
-          <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions>
         </Card>
       </Link>
     </Grid>

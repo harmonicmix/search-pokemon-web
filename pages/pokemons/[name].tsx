@@ -2,13 +2,15 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import axios from "axios";
 import type { NextPage } from "next";
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, Link } from "@mui/material";
 import Image from "next/image";
 import { Datum, Pokemondata } from "../../types/pokemons.types";
 import DetailPokemon from "../../components/DetailPokemon";
 import ShowElement from "../../components/ShowElement";
 import AttackTable from "../../components/AttackTable";
 import Evolution from "../../components/Evolution";
+import Button from "@mui/material/Button";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 interface Props {
   pokemon: Pokemondata;
@@ -20,9 +22,20 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
       <Typography fontWeight={"bold"} variant="h2">
         POKEMON SEARCH
       </Typography>
+      <Link href="/">
+        <Button variant="contained">
+          <ArrowBackIosIcon />
+          Back to home page
+        </Button>
+      </Link>
       <Box
         maxWidth="md"
-        sx={{ background: "#ffffff", padding: 4, borderRadius: 5 }}
+        sx={{
+          background: "#ffffff",
+          padding: 4,
+          borderRadius: 5,
+          marginTop: 2,
+        }}
       >
         <Grid container spacing={5}>
           <Grid item xs={12} md={4} lg={4}>
@@ -61,19 +74,23 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
             />
           </Grid>
         </Grid>
-        <Typography
-          fontWeight={"bold"}
-          gutterBottom
-          variant="h5"
-          component="div"
-        >
-          Evolution
-        </Typography>
-        <Evolution
-          evolutions={pokemon.evolutions}
-          pokemonNowName={pokemon.name}
-          pokemonNowImage={pokemon.image}
-        />
+        {pokemon.evolutions && (
+          <>
+            <Typography
+              fontWeight={"bold"}
+              gutterBottom
+              variant="h5"
+              component="div"
+            >
+              Evolution
+            </Typography>
+            <Evolution
+              evolutions={pokemon.evolutions}
+              pokemonNowName={pokemon.name}
+              pokemonNowImage={pokemon.image}
+            />
+          </>
+        )}
       </Box>
     </Container>
   );
