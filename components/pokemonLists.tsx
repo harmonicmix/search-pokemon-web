@@ -10,7 +10,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import ChipElement from "./Chip/chipElelment";
-
+import Link from "@mui/material/Link";
 type Props = {
   pokemondata: Datum;
 };
@@ -25,24 +25,29 @@ const Post: React.FC<Props> = ({ pokemondata }) => {
       md={8}
       lg={4}
     >
-      <Card>
-        <CardMedia
-          component="img"
-          height="200"
-          image={data.image}
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {data.name}
-          </Typography>
-          <ChipElement label={data.types} />
-        </CardContent>
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
+      <Link href={"/pokemons/" + data.name} underline="none">
+        <Card>
+          <CardMedia
+            component="img"
+            height="200"
+            image={data.image}
+            alt="green iguana"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {"#" + data.number}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              {data.name}
+            </Typography>
+            <ChipElement label={data.types} />
+          </CardContent>
+          <CardActions>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </Card>
+      </Link>
     </Grid>
   );
 };
