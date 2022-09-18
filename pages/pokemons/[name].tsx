@@ -21,7 +21,7 @@ interface Props {
 const Pokemon: NextPage<Props> = ({ pokemon }) => {
   return (
     <Container maxWidth="md" sx={{ marginBottom: 10 }}>
-      <Typography fontWeight={"bold"} variant="h1">
+      <Typography fontWeight={"bold"} variant="h2">
         POKEMON SEARCH
       </Typography>
       <Box

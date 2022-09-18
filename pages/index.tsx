@@ -18,8 +18,8 @@ const Home: NextPage<Props> = ({ pokemons }) => {
   console.log(pokemons);
   const { data } = pokemons;
   return (
-    <Container maxWidth="md">
-      <Typography fontWeight={"bold"} variant="h1">
+    <Container>
+      <Typography fontWeight={"bold"} variant="h2">
         POKEMON SEARCH
       </Typography>
       <Grid container spacing={2}>

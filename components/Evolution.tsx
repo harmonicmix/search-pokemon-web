@@ -2,9 +2,10 @@ import * as React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import ChipElement from "../components/Chip/chipElelment";
 import Avatar from "@mui/material/Avatar";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Evolution } from "../types/pokemons.types";
 import AvatarEvoluton from "./AvatarEvolution";
+import NextEvolutionIcon from "./NextEvolutionIcon";
+
 type Props = {
   evolutions: Evolution[] | null;
   pokemonNowName: string;
@@ -27,11 +28,7 @@ const Evolution: React.FC<Props> = ({
             />
           </Grid>
           <Grid item xs={12} md={4} lg={1}>
-            <ArrowForwardIosIcon
-              sx={{
-                marginTop: "100%",
-              }}
-            />
+            <NextEvolutionIcon />
           </Grid>
         </>
       ) : (
@@ -47,11 +44,7 @@ const Evolution: React.FC<Props> = ({
           </Grid>
           {evolutions.length - 1 !== index ? (
             <Grid item xs={12} md={4} lg={1}>
-              <ArrowForwardIosIcon
-                sx={{
-                  marginTop: "100%",
-                }}
-              />
+              <NextEvolutionIcon />
             </Grid>
           ) : (
             <></>
