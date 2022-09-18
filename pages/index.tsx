@@ -4,14 +4,14 @@ import axios from "axios";
 import type { NextPage } from "next";
 import { Typography } from "@mui/material";
 import Image from "next/image";
-import { Datum, ResponseFromApi } from "../types/pokemons.types";
+import { Datum, Pokedex } from "../types/pokemons.types";
 import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import PokemonLists from "../components/pokemonLists";
 import Grid from "@mui/material/Grid";
 
 interface Props {
-  pokemons: ResponseFromApi;
+  pokemons: Pokedex;
 }
 
 const Home: NextPage<Props> = ({ pokemons }) => {
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const response = await axios.get("http://localhost:5558/pokemons");
   const result = await response.data;
   // console.log(result);
-  const pokemons: Response = result;
+  const pokemons: Pokedex = result;
   return { props: { pokemons } };
 };
 

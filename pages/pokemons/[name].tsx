@@ -8,6 +8,11 @@ import { Datum, Pokemondata } from "../../types/pokemons.types";
 import ChipElement from "../../components/Chip/chipElelment";
 import DetailPokemon from "../../components/DetailPokemon";
 import ShowElement from "../../components/ShowElement";
+import AttackTable from "../../components/AttackTable";
+
+import Avatar from "@mui/material/Avatar";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Evolution from "../../components/Evolution";
 
 interface Props {
   pokemon: Pokemondata;
@@ -15,7 +20,7 @@ interface Props {
 
 const Pokemon: NextPage<Props> = ({ pokemon }) => {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ marginBottom: 10 }}>
       <Typography fontWeight={"bold"} variant="h1">
         POKEMON SEARCH
       </Typography>
@@ -23,7 +28,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
         maxWidth="md"
         sx={{ background: "#ffffff", padding: 4, borderRadius: 5 }}
       >
-        <Grid container spacing={10}>
+        <Grid container spacing={5}>
           <Grid item xs={12} md={4} lg={4}>
             <Image
               src={pokemon.image}
@@ -52,7 +57,27 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
             <ShowElement elements={pokemon.resistant} />
             <ShowElement elements={pokemon.weaknesses} />
           </Grid>
+          <Grid paddingTop={0} item xs={12} md={12} lg={12}>
+            <AttackTable attacks={pokemon.attacks.fast} attackType={"Fast"} />
+            <AttackTable
+              attacks={pokemon.attacks.special}
+              attackType={"Special"}
+            />
+          </Grid>
         </Grid>
+        <Typography
+          fontWeight={"bold"}
+          gutterBottom
+          variant="h5"
+          component="div"
+        >
+          Evolution
+        </Typography>
+        <Evolution
+          evolutions={pokemon.evolutions}
+          pokemonNowName={pokemon.name}
+          pokemonNowImage={pokemon.image}
+        />
       </Box>
     </Container>
   );
