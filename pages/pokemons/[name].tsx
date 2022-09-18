@@ -5,13 +5,9 @@ import type { NextPage } from "next";
 import { Typography, Grid } from "@mui/material";
 import Image from "next/image";
 import { Datum, Pokemondata } from "../../types/pokemons.types";
-import ChipElement from "../../components/Chip/chipElelment";
 import DetailPokemon from "../../components/DetailPokemon";
 import ShowElement from "../../components/ShowElement";
 import AttackTable from "../../components/AttackTable";
-
-import Avatar from "@mui/material/Avatar";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Evolution from "../../components/Evolution";
 
 interface Props {

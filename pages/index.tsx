@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import axios from "axios";
 import type { NextPage } from "next";
 import { Typography } from "@mui/material";
-import Image from "next/image";
 import { Datum, Pokedex } from "../types/pokemons.types";
 import { ChangeEvent, useEffect, useState, useRef } from "react";
 import { GetStaticProps } from "next";
@@ -51,7 +50,7 @@ const Home: NextPage<Props> = ({ pokemons }) => {
   }, [debouncedSearch]);
 
   return (
-    <Container>
+    <Container sx={{ marginBottom: 10 }}>
       <Typography fontWeight={"bold"} variant="h2">
         POKEMON SEARCH
       </Typography>

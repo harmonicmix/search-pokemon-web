@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import type { AppProps } from "next/app";
 import theme from "./theme";
 

@@ -6,11 +6,11 @@ import { Datum } from "../types/pokemons.types";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import ChipElement from "./Chip/chipElelment";
 import Link from "@mui/material/Link";
+import Image from "next/image";
 type Props = {
   pokemondata: Datum;
 };
@@ -27,12 +27,15 @@ const Post: React.FC<Props> = ({ pokemondata }) => {
     >
       <Link href={"/pokemons/" + data.name} underline="none">
         <Card>
-          <CardMedia
-            component="img"
-            height="200"
-            image={data.image}
-            alt="green iguana"
+          <Image
+            src={data.image}
+            alt="a"
+            width={"5%"}
+            height={"5%"}
+            layout="responsive"
+            objectFit="contain"
           />
+
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {"#" + data.number}

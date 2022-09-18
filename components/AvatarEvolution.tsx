@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import ChipElement from "../components/Chip/chipElelment";
 import Link from "@mui/material/Link";
 type Props = {
   pokemonNowName: string;
