@@ -27,7 +27,7 @@ const Evolution: React.FC<Props> = ({
               pokemonNowName={pokemonNowName}
             />
           </Grid>
-          <Grid item xs={12} md={4} lg={1}>
+          <Grid item xs={12} md={1} lg={1}>
             <NextEvolutionIcon />
           </Grid>
         </>
@@ -43,7 +43,7 @@ const Evolution: React.FC<Props> = ({
             />
           </Grid>
           {evolutions.length - 1 !== index ? (
-            <Grid item xs={12} md={4} lg={1}>
+            <Grid item xs={12} md={1} lg={1}>
               <NextEvolutionIcon />
             </Grid>
           ) : (

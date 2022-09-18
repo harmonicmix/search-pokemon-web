@@ -7,7 +7,7 @@ const NextEvolutionIcon: React.FC = () => {
     <>
       <ArrowForwardIosIcon
         sx={{
-          marginTop: "100%",
+          marginTop: { md: "25%", lg: "100%" },
           display: { xs: "none", sm: "none", md: "block" },
         }}
       />
