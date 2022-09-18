@@ -2,30 +2,58 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import axios from "axios";
 import type { NextPage } from "next";
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import Image from "next/image";
 import { Datum, Pokemondata } from "../../types/pokemons.types";
-import Grid from "@mui/material/Grid";
-import { useRouter } from "next/router";
-import { GetStaticProps } from "next";
+import ChipElement from "../../components/Chip/chipElelment";
+import DetailPokemon from "../../components/DetailPokemon";
+import ShowElement from "../../components/ShowElement";
 
 interface Props {
   pokemon: Pokemondata;
 }
 
 const Pokemon: NextPage<Props> = ({ pokemon }) => {
-  console.log(pokemon.name);
-
   return (
     <Container maxWidth="md">
       <Typography fontWeight={"bold"} variant="h1">
         POKEMON SEARCH
       </Typography>
-
-      {/* {data.map((pokemondata: Datum) => {
-        // eslint-disable-next-line react/jsx-key
-        return <Typography>{pokemondata.pokemondata.name}</Typography>;
-      })} */}
+      <Box
+        maxWidth="md"
+        sx={{ background: "#ffffff", padding: 4, borderRadius: 5 }}
+      >
+        <Grid container spacing={10}>
+          <Grid item xs={12} md={4} lg={4}>
+            <Image
+              src={pokemon.image}
+              alt="a"
+              width={"10%"}
+              height={"10%"}
+              layout="responsive"
+            />
+          </Grid>
+          <Grid item xs={12} md={8} lg={8}>
+            <Typography gutterBottom variant="h5" component="div">
+              {"Name: " + pokemon.name}
+            </Typography>
+            <Typography gutterBottom component="div">
+              {"Classification: " + pokemon.classification}
+            </Typography>
+            <DetailPokemon
+              weightMinimum={pokemon.weight.minimum}
+              weightMaximum={pokemon.weight.maximum}
+              heightMinimum={pokemon.height.minimum}
+              heightMaximum={pokemon.height.maximum}
+              maxCP={pokemon.maxCP}
+              maxHP={pokemon.maxHP}
+            />
+            <ShowElement elements={pokemon.types} />
+            <ShowElement elements={pokemon.resistant} />
+            <ShowElement elements={pokemon.weaknesses} />
+          </Grid>
+        </Grid>
+      </Box>
     </Container>
   );
 };
@@ -35,6 +63,7 @@ export async function getStaticProps(context: { params: { name: any } }) {
   const response = await axios.get(
     `http://localhost:5558/pokemons/search?name=${pokemonName}`
   );
+
   const { data } = await response.data;
   const pokemon: Pokemondata = data[0].pokemondata;
   return {

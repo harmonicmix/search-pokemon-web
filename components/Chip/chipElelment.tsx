@@ -2,11 +2,11 @@ import * as React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import { Chip } from "@mui/material";
-import { Type } from "../../types/pokemons.types";
+import { Resistant } from "../../types/pokemons.types";
 import { OverridableStringUnion } from "@mui/types";
 
 type Props = {
-  label: Type[];
+  label: Resistant[];
 };
 
 export interface ChipPropsColorOverrides {}

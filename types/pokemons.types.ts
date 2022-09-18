@@ -1,7 +1,3 @@
-export interface ResponseFromApi {
-  statusName: string;
-  data: Datum[];
-}
 export interface Pokedex {
   statusName: string;
   data: Datum[];
@@ -18,15 +14,15 @@ export interface Pokemondata {
   image: string;
   maxCP: number;
   maxHP: number;
-  types: Type[];
+  types: Resistant[];
   height: Eight;
   number: string;
   weight: Eight;
   attacks: Attacks;
   fleeRate: number;
-  resistant: string[];
-  evolutions: Evolution[];
-  weaknesses: string[];
+  resistant: Resistant[];
+  evolutions: Evolution[] | null;
+  weaknesses: Resistant[];
   classification: string;
 }
 
@@ -36,15 +32,30 @@ export interface Attacks {
 }
 
 export interface Fast {
-  name: string;
-  type: Type;
-  damage: number;
+  name: null | string;
+  type: Resistant | null;
+  damage: number | null;
 }
 
-export enum Type {
+export enum Resistant {
+  Bug = "Bug",
+  Dark = "Dark",
+  Dragon = "Dragon",
+  Electric = "Electric",
+  Fairy = "Fairy",
+  Fighting = "Fighting",
+  Fire = "Fire",
+  Flying = "Flying",
+  Ghost = "Ghost",
   Grass = "Grass",
+  Ground = "Ground",
+  Ice = "Ice",
   Normal = "Normal",
   Poison = "Poison",
+  Psychic = "Psychic",
+  Rock = "Rock",
+  Steel = "Steel",
+  Water = "Water",
 }
 
 export interface Evolution {
