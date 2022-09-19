@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Typography, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Evolution } from "../types/pokemons.types";
 import AvatarEvoluton from "./AvatarEvolution";
 import NextEvolutionIcon from "./NextEvolutionIcon";

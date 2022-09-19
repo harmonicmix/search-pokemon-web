@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Typography } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import Link from "@mui/material/Link";
+import { Typography, Avatar, Link } from "@mui/material";
+
 type Props = {
   pokemonNowName: string;
   pokemonNowImage: string;

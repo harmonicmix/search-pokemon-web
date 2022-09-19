@@ -1,15 +1,12 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 import axios from "axios";
 import type { NextPage } from "next";
-import { Typography, Grid, Link } from "@mui/material";
+import { Typography, Grid, Link, Box, Container, Button } from "@mui/material";
 import Image from "next/image";
 import { Datum, Pokemondata } from "../../types/pokemons.types";
 import DetailPokemon from "../../components/DetailPokemon";
 import ShowElement from "../../components/ShowElement";
 import AttackTable from "../../components/AttackTable";
 import Evolution from "../../components/Evolution";
-import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 interface Props {

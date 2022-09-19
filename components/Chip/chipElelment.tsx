@@ -1,6 +1,4 @@
 import * as React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Button from "@mui/material/Button";
 import { Chip } from "@mui/material";
 import { Resistant } from "../../types/pokemons.types";
 import { OverridableStringUnion } from "@mui/types";

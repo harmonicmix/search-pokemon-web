@@ -1,15 +1,9 @@
 // components/Post.tsx
 
 import * as React from "react";
-import { Box, Typography } from "@mui/material";
+import { Typography, Card, CardContent, Grid, Link } from "@mui/material";
 import { Datum } from "../types/pokemons.types";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import ChipElement from "./Chip/chipElelment";
-import Link from "@mui/material/Link";
 import Image from "next/image";
 type Props = {
   pokemondata: Datum;

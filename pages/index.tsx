@@ -1,17 +1,20 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 import axios from "axios";
 import type { NextPage } from "next";
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  Container,
+  Box,
+  Grid,
+  TextField,
+  Alert,
+  AlertTitle,
+} from "@mui/material";
 import { Datum, Pokedex } from "../types/pokemons.types";
 import { ChangeEvent, useEffect, useState, useRef } from "react";
 import { GetStaticProps } from "next";
 import PokemonLists from "../components/pokemonLists";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
 import { debounce } from "lodash";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
+
 interface Props {
   pokemons: Pokedex;
 }
