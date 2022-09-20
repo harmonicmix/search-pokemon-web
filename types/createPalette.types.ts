@@ -2,44 +2,29 @@ import * as createPalette from "@mui/material/styles/createPalette";
 
 declare module "@mui/material/styles/createPalette" {
   interface PaletteOptions {
-    Grass?: PaletteOptions["primary"];
-    Poison?: PaletteOptions["primary"];
-    Bug?: PaletteOptions["primary"];
-    Dark?: PaletteOptions["primary"];
-    Dragon?: PaletteOptions["primary"];
-    Electric?: PaletteOptions["primary"];
-    Fairy?: PaletteOptions["primary"];
-    Fighting?: PaletteOptions["primary"];
-    Fire?: PaletteOptions["primary"];
-    Flying?: PaletteOptions["primary"];
-    Ghost?: PaletteOptions["primary"];
-    Ground?: PaletteOptions["primary"];
-    Ice?: PaletteOptions["primary"];
-    Normal?: PaletteOptions["primary"];
-    Psychic?: PaletteOptions["primary"];
-    Rock?: PaletteOptions["primary"];
-    Steel?: PaletteOptions["primary"];
-    Water?: PaletteOptions["primary"];
+    Grass?: stylees;
+    Poison?: stylees;
+    Bug?: stylees;
+    Dark?: stylees;
+    Dragon?: stylees;
+    Electric?: stylees;
+    Fairy?: stylees;
+    Fighting?: stylees;
+    Fire?: stylees;
+    Flying?: stylees;
+    Ghost?: stylees;
+    Ground?: stylees;
+    Ice?: stylees;
+    Normal?: stylees;
+    Psychic?: stylees;
+    Rock?: stylees;
+    Steel?: stylees;
+    Water?: stylees;
   }
-  interface Palette {
-    Grass: PaletteOptions["primary"];
-    Poison: PaletteOptions["primary"];
-    Bug: PaletteOptions["primary"];
-    Dark: PaletteOptions["primary"];
-    Dragon: PaletteOptions["primary"];
-    Electric: PaletteOptions["primary"];
-    Fairy: PaletteOptions["primary"];
-    Fighting: PaletteOptions["primary"];
-    Fire: PaletteOptions["primary"];
-    Flying: PaletteOptions["primary"];
-    Ghost: PaletteOptions["primary"];
-    Ground: PaletteOptions["primary"];
-    Ice: PaletteOptions["primary"];
-    Normal: PaletteOptions["primary"];
-    Psychic: PaletteOptions["primary"];
-    Rock: PaletteOptions["primary"];
-    Steel: PaletteOptions["primary"];
-    Water: PaletteOptions["primary"];
+
+  interface stylees {
+    main: string;
+    contrastText: string;
   }
 }
 
