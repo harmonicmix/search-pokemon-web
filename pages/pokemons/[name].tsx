@@ -94,7 +94,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
   );
 };
 
-export async function getStaticProps(context: { params: { name: any } }) {
+export async function getStaticProps(context: { params: { name: string } }) {
   const pokemonName = context.params.name;
   const response = await axios.get(
     `${configs.api}/pokemons/search?name=${pokemonName}`
