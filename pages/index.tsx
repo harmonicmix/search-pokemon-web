@@ -14,6 +14,7 @@ import { ChangeEvent, useEffect, useState, useRef } from "react";
 import { GetStaticProps } from "next";
 import PokemonLists from "../components/pokemonLists";
 import { debounce } from "lodash";
+import { configs } from "../pages/constatns";
 
 interface Props {
   pokemons: Pokedex;
@@ -23,7 +24,6 @@ const Home: NextPage<Props> = ({ pokemons }) => {
   const { data } = pokemons;
   const [pokemonsList, setPokemonsList] = useState(data);
   const [name, setName] = useState("");
-
   const debouncedSearch = useRef(
     debounce(async (name) => {
       setPokemonsList(await search(name));
@@ -33,10 +33,10 @@ const Home: NextPage<Props> = ({ pokemons }) => {
   async function search(name: string) {
     try {
       const response = await axios.get(
-        `http://localhost:5558/pokemons/search?name=${name}`
+        `${configs.api_client_side}/pokemons/search?name=${name}`
       );
       const result = await response.data.data;
-      console.log("body.results", result);
+
       return result;
     } catch (error) {}
   }
@@ -89,9 +89,8 @@ const Home: NextPage<Props> = ({ pokemons }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const response = await axios.get("http://localhost:5558/pokemons");
+  const response = await axios.get(`${configs.api}/pokemons`);
   const result = await response.data;
-  // console.log(result);
   const pokemons: Pokedex = result;
   return { props: { pokemons } };
 };

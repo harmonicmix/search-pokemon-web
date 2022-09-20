@@ -8,6 +8,7 @@ import ShowElement from "../../components/ShowElement";
 import AttackTable from "../../components/AttackTable";
 import Evolution from "../../components/Evolution";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { configs } from "../../pages/constatns";
 
 interface Props {
   pokemon: Pokemondata;
@@ -96,7 +97,7 @@ const Pokemon: NextPage<Props> = ({ pokemon }) => {
 export async function getStaticProps(context: { params: { name: any } }) {
   const pokemonName = context.params.name;
   const response = await axios.get(
-    `http://localhost:5558/pokemons/search?name=${pokemonName}`
+    `${configs.api}/pokemons/search?name=${pokemonName}`
   );
 
   const { data } = await response.data;
@@ -109,7 +110,7 @@ export async function getStaticProps(context: { params: { name: any } }) {
 }
 
 export async function getStaticPaths() {
-  const response = await axios.get("http://localhost:5558/pokemons");
+  const response = await axios.get(`${configs.api}/pokemons`);
   const result = await response.data.data;
   const paths = result.map((pokemondata: Datum) => {
     const characterId = pokemondata.pokemondata.name;
@@ -119,7 +120,6 @@ export async function getStaticPaths() {
       },
     };
   });
-  // console.log(paths);
   return {
     paths,
     fallback: false,

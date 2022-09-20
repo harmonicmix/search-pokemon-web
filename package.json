@@ -15,6 +15,7 @@
     "@mui/material": "^5.10.5",
     "@types/lodash": "^4.14.185",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
     "lodash": "^4.17.21",
     "mui-image": "^1.0.7",
     "next": "12.3.0",
